@@ -54,7 +54,6 @@ public class Character : MonoBehaviour, IDestination
     
     [Header("Movement")]
     [SerializeField, Min(0)] private float destinationReachedDistance = 0.5f;
-    [SerializeField] private Vector3 initialDestination;
 
     private GameController gameController;
     private CharacterVitals vitals;
@@ -102,20 +101,6 @@ public class Character : MonoBehaviour, IDestination
         // Init values.
         nextThrowTrashTime = PickNextThrowTrashTime();
         
-        // Init starting position.
-        // TODO : Placer le personnage à un endroit aléatoire.
-    }
-
-    // TODO : Enlever la méthode Start. Ce n'est que pour la courte démo quand vous partez le jeu la première fois.
-    //        Enlever aussi le [SerializedField] "initialDestination" par la même occasion.
-    private IEnumerator Start()
-    {
-        // Move.
-        navMeshAgent.SetDestination(initialDestination);
-        yield return new WaitUntil(() => Vector3.Distance(transform.position, initialDestination) < destinationReachedDistance);
-        
-        // Greet.
-        characterAnimation.PlayGreetAnimation();
     }
 
     public void NavigateTo(IDestination destination)
@@ -130,6 +115,11 @@ public class Character : MonoBehaviour, IDestination
         }
 
         StartCoroutine(Routine());
+    }
+    
+    public void PlaceAt(Vector3 position)
+    {
+        navMeshAgent.Warp(position);
     }
 
     public void CancelNavigate()
@@ -162,8 +152,7 @@ public class Character : MonoBehaviour, IDestination
             gameController.ObjectPools.Trash.Release(trash.gameObject);
 
             // Remove trash from memory.
-            // TODO : Enlevez le déchet ramassé de la mémoire du personnage. Par exemple :
-            //      blackboard.Trash = null;
+            if (blackboard.LastSeenTrash == trash) blackboard.LastSeenTrash = null;
 
 #if UNITY_EDITOR
             // Append the character name to the trash GameObject name for debugging.
@@ -234,8 +223,7 @@ public class Character : MonoBehaviour, IDestination
             yield return new WaitUntil(() => !characterAnimation.IsPlayingGreetAnimation());
 
             // Remove friend from memory.
-            // TODO : Enlevez l'ami salué de la mémoire du personnage. Par exemple :
-            //      blackboard.Friend = null;
+            if (blackboard.LastSeenFriend == character) blackboard.LastSeenFriend = null;
         }
 
         StartCoroutine(Routine());

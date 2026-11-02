@@ -24,7 +24,8 @@ public class CharacterBlackboard : MonoBehaviour
     public Building[] SocialBuildings => gameController.CityObjects.SocialBuildings;
     
     [Header("Memory")]
-    [field:SerializeField] public bool Example { get; set; }
+    [field:SerializeField] public Trash LastSeenTrash { get; set; }
+    [field:SerializeField] public Character LastSeenFriend { get; set; }
     
     // TODO : Ajouter ici les autres éléments à conserver en mémoire.
     //        Notez que la syntaxe est légèrement différente de ce que vous avez été habitué : il y a un "field:" devant
@@ -41,6 +42,7 @@ public class CharacterBlackboard : MonoBehaviour
     // Blackboard maintenance.
     private void Update()
     {
-        
+        if (LastSeenTrash != null && !LastSeenTrash.IsAvailable) LastSeenTrash = null;
+        if (LastSeenFriend != null && !LastSeenFriend.IsAvailable) LastSeenFriend = null;
     }
 }
