@@ -125,8 +125,8 @@ public class ChangeCharacter : MonoBehaviour
     private Color GetColor(float value)
     {
         if (value < 0.5f)
-            return Color.Lerp(lowColor, midColor, value * 2f);
+            return Color.Lerp(highColor, midColor, value * 2f);
 
-        return Color.Lerp(midColor, highColor, (value - 0.5f) * 2f);
+        return Color.Lerp(midColor, lowColor, (value - 0.5f) * 2f);
     }
 }
