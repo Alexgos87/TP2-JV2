@@ -4,8 +4,9 @@ using UnityEngine;
 public class CharacterStateMachine : MonoBehaviour
 {
     
-    private Stack<ICharacterState> stateStack = new();
+    private readonly Stack<ICharacterState> stateStack = new();
     private Character character;
+    public string CurrentStateName => stateStack.Peek().GetType().Name;
     
     private void Awake()
     {
@@ -35,9 +36,5 @@ public class CharacterStateMachine : MonoBehaviour
         stateStack.Pop();
         stateStack.Peek().Enter();
     }
-
-    public string CurrentStateName()
-    {
-        return stateStack.Peek().GetType().Name;
-    }
+    
 }

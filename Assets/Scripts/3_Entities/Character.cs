@@ -58,6 +58,7 @@ public class Character : MonoBehaviour, IDestination
     private GameController gameController;
     private CharacterVitals vitals;
     private CharacterBlackboard blackboard;
+    private CharacterStateMachine stateMachine;
     private CharacterAnimation characterAnimation;
     private NavMeshAgent navMeshAgent;
     private CapsuleCollider collider;
@@ -66,6 +67,7 @@ public class Character : MonoBehaviour, IDestination
 
     public CharacterVitals Vitals => vitals;
     public CharacterBlackboard Blackboard => blackboard;
+    public CharacterStateMachine StateMachine => stateMachine;
 
     public Vector3 Position
     {
@@ -93,6 +95,7 @@ public class Character : MonoBehaviour, IDestination
         gameController = Finder.GameController;
         vitals = GetComponent<CharacterVitals>();
         blackboard = GetComponent<CharacterBlackboard>();
+        stateMachine = GetComponent<CharacterStateMachine>();
         characterAnimation = GetComponent<CharacterAnimation>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         collider = GetComponent<CapsuleCollider>();

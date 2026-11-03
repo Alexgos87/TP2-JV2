@@ -18,10 +18,7 @@
 
     public void Update()
     {
-        var vitals = character.Vitals;
-        vitals.RaiseHunger();
-        vitals.RaiseLoneliness();
-        vitals.RaiseSleepiness();
+        character.Vitals.RaiseAll();
 
         if (!destination.IsAvailable || character.IsCloseTo(destination))
         {

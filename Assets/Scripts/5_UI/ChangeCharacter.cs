@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,24 +14,23 @@ public class ChangeCharacter : MonoBehaviour
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private Scrollbar hunger;
     [SerializeField] private Scrollbar sleep;
-    [SerializeField] private Scrollbar Scocial;
+    [SerializeField] private Scrollbar social;
 
     [Header("Bar Colors")]
     [SerializeField] private Color lowColor = Color.red;
     [SerializeField] private Color midColor = Color.yellow;
     [SerializeField] private Color highColor = Color.green;
 
-    private Character[] characters; // list des personnages dans la scène qui vien du gameControler
+    private Character[] characters;
 
-    private Character ActualCharchter;
-    private int index = 0;
-
-
-
+    private Character actualCharacter;
+    private int index;
+    
     private void Awake()
     {
         characters = Finder.GameController.CityObjects.Characters;
-        ActualCharchter = characters[index];
+        actualCharacter = characters[index];
+        actualCharacter.ShowPointer();
     }
 
 
@@ -40,29 +38,29 @@ public class ChangeCharacter : MonoBehaviour
     {
         if (nextPc.action.WasPressedThisFrame())
         {
-            ActualCharchter.HidePointer();
-            nextCharchter();
-            ActualCharchter.ShowPointer();
+            actualCharacter.HidePointer();
+            NextCharacter();
+            actualCharacter.ShowPointer();
         }
 
         if (previousPc.action.WasPressedThisFrame())
         {
-            ActualCharchter.HidePointer();
-            previousCharchter();
-            ActualCharchter.ShowPointer();
+            actualCharacter.HidePointer();
+            PreviousCharacter();
+            actualCharacter.ShowPointer();
         }
 
-        refreshUI();
+        RefreshUI();
     }
 
-    private void refreshUI()
+    private void RefreshUI()
     {
         UpdateName();
         UpdateAvatar();
-        updateScrollbar();
+        UpdateScrollbar();
     }
 
-    private void previousCharchter()
+    private void PreviousCharacter()
     {
         if (characters == null || characters.Length == 0)
         {
@@ -70,10 +68,10 @@ public class ChangeCharacter : MonoBehaviour
         }
 
         index = (index - 1 + characters.Length) % characters.Length;
-        ActualCharchter = characters[index];
+        actualCharacter = characters[index];
     }
 
-    private void nextCharchter()
+    private void NextCharacter()
     {
         if (characters == null || characters.Length == 0)
         {
@@ -81,45 +79,46 @@ public class ChangeCharacter : MonoBehaviour
         }
 
         index = (index + 1) % characters.Length;
-        ActualCharchter = characters[index];
+        actualCharacter = characters[index];
     }
 
     private void UpdateName()
     {
-        nameText.text = ActualCharchter.FullName + "\n le state est afficher ici";
+        nameText.text = actualCharacter.FullName + "\n ("+actualCharacter.StateMachine.CurrentStateName+")";
+        
     }
 
     private void UpdateAvatar()
     {
-        avatarImage.sprite = ActualCharchter.Avatar;
+        avatarImage.sprite = actualCharacter.Avatar;
     }
 
-    private void updateScrollbar()
+    private void UpdateScrollbar()
     {
-        updateHungerBar();
-        updateSleepBar();
-        updateSocialBar();
+        UpdateHungerBar();
+        UpdateSleepBar();
+        UpdateSocialBar();
     }
 
-    private void updateHungerBar()
+    private void UpdateHungerBar()
     {
-        float value = ActualCharchter.Vitals.Hunger / 100f;
+        float value = 1f - actualCharacter.Vitals.Hunger / 100f;
         hunger.size = value;
         hunger.targetGraphic.color = GetColor(value);
     }
 
-    private void updateSleepBar()
+    private void UpdateSleepBar()
     {
-        float value = ActualCharchter.Vitals.Sleepiness / 100f;
+        float value = 1f - actualCharacter.Vitals.Sleepiness / 100f;
         sleep.size = value;
         sleep.targetGraphic.color = GetColor(value);
     }
 
-    private void updateSocialBar()
+    private void UpdateSocialBar()
     {
-        float value = ActualCharchter.Vitals.Loneliness / 100f;
-        Scocial.size = value;
-        Scocial.targetGraphic.color = GetColor(value);
+        float value = 1f - actualCharacter.Vitals.Loneliness / 100f;
+        social.size = value;
+        social.targetGraphic.color = GetColor(value);
     }
 
     private Color GetColor(float value)

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8246828079346000846}
   - component: {fileID: 3661472501090085810}
+  - component: {fileID: 3409156868345663474}
   - component: {fileID: 5189816781710339723}
   - component: {fileID: 6321501451660686319}
   - component: {fileID: 5574530279088914265}
@@ -62,6 +63,18 @@ MonoBehaviour:
   minThrowDelay: 5
   maxThrowDelay: 60
   destinationReachedDistance: 0.5
+--- !u!114 &3409156868345663474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637105231329891834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79fbcb62ef842744389e45d15ae5f3cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterSensor
 --- !u!114 &5189816781710339723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +92,7 @@ MonoBehaviour:
   <Friends>k__BackingField: []
   <LastSeenTrash>k__BackingField: {fileID: 0}
   <LastSeenFriend>k__BackingField: {fileID: 0}
+  <CurrentState>k__BackingField: 
 --- !u!114 &6321501451660686319
 MonoBehaviour:
   m_ObjectHideFlags: 0

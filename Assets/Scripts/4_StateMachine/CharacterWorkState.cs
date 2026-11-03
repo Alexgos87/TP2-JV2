@@ -1,7 +1,7 @@
 ﻿public class CharacterWorkState : ICharacterState
 {
-    private Character character;
-    private CharacterStateMachine stateMachine;
+    private readonly Character character;
+    private readonly CharacterStateMachine stateMachine;
     private bool isInside;
 
     public CharacterWorkState(Character character, CharacterStateMachine stateMachine)
@@ -19,7 +19,7 @@
     {
         var vitals = character.Vitals;
         character.Vitals.RaiseAll();
-        
+
         if (vitals.IsHungerAboveThreshold)
             stateMachine.PushState(new CharacterEatState(character, stateMachine));
         else if (vitals.IsLonelinessAboveThreshold)
