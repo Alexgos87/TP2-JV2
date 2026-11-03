@@ -595,6 +595,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5897847837676943652, guid: 4bddef2e107174a4a9436476a71208ca, type: 3}
   m_PrefabInstance: {fileID: 78872846}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &85289216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6479724106094118183, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+  m_PrefabInstance: {fileID: 1590660908963333345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Scrollbar
 --- !u!1001 &87727795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1529,6 +1540,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5489036386304018604, guid: 1b68f33fea91348438211463abdf97ef, type: 3}
   m_PrefabInstance: {fileID: 151863026}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &156372750 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817978364724054044, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+  m_PrefabInstance: {fileID: 1590660908963333345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &156808880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5012,6 +5034,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2981316287729991673, guid: a0e55a1b7b8704240889f381fd1f88f8, type: 3}
   m_PrefabInstance: {fileID: 335989761}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &492697627 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4403241435926618128, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+  m_PrefabInstance: {fileID: 1590660908963333345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Scrollbar
 --- !u!1 &499493527
 GameObject:
   m_ObjectHideFlags: 0
@@ -7529,10 +7562,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09be7e38b3752a4f9308ff3b20cfbd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeCharacter
-  nextPc: {fileID: 0}
-  previousPc: {fileID: 0}
-  previousControler: {fileID: 0}
-  nextControler: {fileID: 0}
+  nextPc: {fileID: 6687872274934810856, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  previousPc: {fileID: 7760400894658334405, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  avatarImage: {fileID: 1073325754}
+  nameText: {fileID: 156372750}
+  hunger: {fileID: 492697627}
+  sleep: {fileID: 1460586777}
+  Scocial: {fileID: 85289216}
 --- !u!1001 &790532968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10250,6 +10286,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5897847837676943652, guid: 4bddef2e107174a4a9436476a71208ca, type: 3}
   m_PrefabInstance: {fileID: 1066383763}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1073325754 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8725535514106404824, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+  m_PrefabInstance: {fileID: 1590660908963333345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &1081754943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13444,6 +13491,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2981316287729991673, guid: cf0de01a58d4bd54fa9552ac1290ecba, type: 3}
   m_PrefabInstance: {fileID: 87727795}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1460586777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8268130745520589183, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+  m_PrefabInstance: {fileID: 1590660908963333345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Scrollbar
 --- !u!1001 &1463112177
 PrefabInstance:
   m_ObjectHideFlags: 0
