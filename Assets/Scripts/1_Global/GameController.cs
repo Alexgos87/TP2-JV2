@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour
 public sealed class CityObjects
 {
     [Header("Actors")]
-    [SerializeField] private Character[] characters;
+    [SerializeField] private Character[] characters; // list des personnages dans la scène
     [SerializeField] private CharacterSpawnPoint[] characterSpawnPoints;
 
     [Header("Locations")]
