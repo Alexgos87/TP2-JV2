@@ -17,6 +17,11 @@ public class ChangeCharacter : MonoBehaviour
     [SerializeField] private Scrollbar sleep;
     [SerializeField] private Scrollbar Scocial;
 
+    [Header("Bar Colors")]
+    [SerializeField] private Color lowColor = Color.red;
+    [SerializeField] private Color midColor = Color.yellow;
+    [SerializeField] private Color highColor = Color.green;
+
     private Character[] characters; // list des personnages dans la scène qui vien du gameControler
 
     private Character ActualCharchter;
@@ -98,16 +103,30 @@ public class ChangeCharacter : MonoBehaviour
 
     private void updateHungerBar()
     {
-        hunger.size = ActualCharchter.Vitals.Hunger / 100f;
+        float value = ActualCharchter.Vitals.Hunger / 100f;
+        hunger.size = value;
+        hunger.targetGraphic.color = GetColor(value);
     }
 
     private void updateSleepBar()
     {
-        sleep.size = ActualCharchter.Vitals.Sleepiness / 100f;
+        float value = ActualCharchter.Vitals.Sleepiness / 100f;
+        sleep.size = value;
+        sleep.targetGraphic.color = GetColor(value);
     }
 
     private void updateSocialBar()
     {
-        Scocial.size = ActualCharchter.Vitals.Loneliness / 100f;
+        float value = ActualCharchter.Vitals.Loneliness / 100f;
+        Scocial.size = value;
+        Scocial.targetGraphic.color = GetColor(value);
+    }
+
+    private Color GetColor(float value)
+    {
+        if (value < 0.5f)
+            return Color.Lerp(lowColor, midColor, value * 2f);
+
+        return Color.Lerp(midColor, highColor, (value - 0.5f) * 2f);
     }
 }
